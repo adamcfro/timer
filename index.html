@@ -1,0 +1,52 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta name="description" content="Timer that counts down and alerts user" />
+    <meta name="keywords" content="timer, countdown, alarm" />
+    <meta name="author" content="Adam Froehlich" />
+
+    <title>Countdown Timer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="container">
+      <section id="enter-time-section">
+        <h1 id="main-header">TIMER</h1>
+        <form action="#" id="form">
+          <h5 id="section-header">Enter Time:</h5>
+          <input
+            type="text"
+            name="time"
+            id="user-input"
+            placeholder="...minutes"
+            onfocus="this.value=''"
+            autocomplete="off"
+          />
+          <input type="submit" value="Start Timer" id="submit" />
+        </form>
+      </section>
+      <section id="show-timer-section">
+        <div id="display" class=""></div>
+        <div id="cancel">
+          <button id="cancel-button">Cancel</button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

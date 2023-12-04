@@ -1,0 +1,128 @@
+:root {
+  --blue: #D9E9FA;
+  --red: #FA4D6A;
+  --white: #FFFFFF;
+  --light-gray: #F4EFEF;
+  --gray: #D3D3D3;
+  --black: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  background: var(--blue);
+  font-family: 'Nunito', sans-serif;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+#container {
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#enter-time-section {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-header {
+  margin: 3rem 0 8rem 0;
+  font-size: 2.5rem;
+}
+
+#section-header {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-input {
+  height: 3rem;
+  width: 10rem;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: .5rem;
+}
+
+#submit,
+#cancel-button {
+  height: 6rem;
+  width: 6rem;
+  margin: 6rem 0;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--red);
+  border: none;
+  border-radius: 5rem;
+}
+
+#cancel-button {
+  animation: changecolor 5s infinite;
+}
+
+@keyframes changecolor {
+  0% {
+    color: var(--white);
+  }
+  20% {
+    color: var(--white);
+  }
+  40% {
+    color: var(--white);
+  }
+  61% {
+    color: var(--black);
+  }
+  81% {
+    color: var(--white);
+  }
+  100% {
+    color: var(--white);
+  }
+}
+
+#show-timer-section {
+  display: none;
+  flex-direction: column;
+}
+
+#display {
+  height: 12rem;
+  width: 12rem;
+  margin: 7rem 0;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  border: .1rem solid var(--light-gray);
+  border-radius: 10rem;
+}
+
+@media screen and (min-width: 600px) {
+  #enter-time-section,
+  #show-timer-section {
+    height: 700px;
+    width: 450px;
+    justify-content: center;
+    align-items: center;
+    border: .1rem solid var(--black);
+    border-left: .05rem solid var(--white);
+    border-top: .03rem solid var(--white);
+    box-shadow: .2rem .2rem .2rem var(--gray);
+  }
+}
