@@ -7,7 +7,7 @@
 function getInput(e) {
   e.preventDefault();
 
-  if (document.querySelector("#user-input").value === "") {
+  if (document.querySelector(".user-input").value === "") {
     alert("No time entered!");
     return;
   }
@@ -17,6 +17,8 @@ function getInput(e) {
 
   changeDisplay();
 
+  blinkingLights();
+
   startTimer(timeInSeconds);
 }
 
@@ -24,12 +26,40 @@ function getInput(e) {
  * Changes the display to the showcase the timer.
  */
 function changeDisplay() {
-  document.querySelector("#enter-time-section").style.display = "none";
-
-  document.querySelector("#show-timer-section").style.display = "flex";
+  document.querySelector(".start-timer-section").style.display = "none";
+  document.querySelector(".display-timer-section").style.display = "grid";
   document
-    .querySelector("#cancel-button")
+    .querySelector(".cancel-button")
     .addEventListener("click", cancelFunction);
+}
+
+/**
+ * Fills in div backgrounds one-by-one every second.
+ */
+function blinkingLights() {
+  const light1 = document.querySelector(".light1");
+  const light2 = document.querySelector(".light2");
+  const light3 = document.querySelector(".light3");
+
+  setTimeout(() => {
+    light1.style.backgroundColor = "var(--red)";
+  }, 1000);
+
+  setTimeout(() => {
+    light2.style.backgroundColor = "var(--red)";
+  }, 2000);
+
+  setTimeout(() => {
+    light3.style.backgroundColor = "var(--red)";
+  }, 3000);
+
+  setTimeout(() => {
+    light1.style.backgroundColor = "var(--light-gray)";
+    light2.style.backgroundColor = "var(--light-gray)";
+    light3.style.backgroundColor = "var(--light-gray)";
+  }, 4000);
+
+  setTimeout(blinkingLights, 4000);
 }
 
 /**
@@ -49,7 +79,6 @@ function cancelFunction() {
  * @param {number} timeInSeconds - A number representing seconds
  */
 function startTimer(timeInSeconds) {
-  clearInput();
   let timer = timeInSeconds;
   const interval = setInterval(function () {
     minutesAndSeconds = getMinutesAndSeconds(timer);
@@ -58,14 +87,6 @@ function startTimer(timeInSeconds) {
       timerFinished(interval);
     }
   }, 1000);
-}
-
-/**
- * Clears the user input field.
- */
-function clearInput() {
-  const time = document.querySelector("#user-input");
-  time.value = "";
 }
 
 /**
@@ -90,7 +111,7 @@ function getMinutesAndSeconds(timer) {
  *     remaining minutes and seconds
  */
 function displayContent(minutesAndSeconds) {
-  const display = document.querySelector("#display");
+  const display = document.querySelector(".time");
   display.textContent = minutesAndSeconds[0] + ":" + minutesAndSeconds[1];
 }
 
@@ -111,7 +132,7 @@ function timerFinished(interval) {
  * Starts the application.
  */
 function startApp() {
-  document.querySelector("#form").addEventListener("submit", getInput);
+  document.querySelector(".form").addEventListener("submit", getInput);
 }
 
 startApp();
