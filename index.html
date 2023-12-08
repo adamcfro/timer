@@ -25,26 +25,33 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <div id="container">
-      <section id="enter-time-section">
-        <h1 id="main-header">TIMER</h1>
-        <form action="#" id="form">
-          <h5 id="section-header">Enter Time:</h5>
+    <div class="container">
+      <section class="start-timer-section">
+        <h1 class="main-header">TIMER</h1>
+        <form action="#" class="form" id="form">
+          <label for="time" class="label">Enter Time:</label>
           <input
             type="text"
             name="time"
-            id="user-input"
+            class="user-input"
             placeholder="...minutes"
             onfocus="this.value=''"
             autocomplete="off"
           />
-          <input type="submit" value="Start Timer" id="submit" />
         </form>
+        <div class="button">
+          <input type="submit" value="Start" class="start-button" form="form" />
+        </div>
       </section>
-      <section id="show-timer-section">
-        <div id="display" class=""></div>
-        <div id="cancel">
-          <button id="cancel-button">Cancel</button>
+      <section class="display-timer-section">
+        <div class="time"></div>
+        <ul class="blinking-lights">
+          <li class="light light1"></li>
+          <li class="light light2"></li>
+          <li class="light light3"></li>
+        </ul>
+        <div class="button">
+          <input type="button" class="cancel-button" value="Cancel" />
         </div>
       </section>
     </div>
